@@ -1,0 +1,40 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "set",
+        "get"
+      ],
+      "route": "visit/testpartitionkey/{name}"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputDocument",
+      "databaseName": "visitordb",
+      "collectionName": "visit",
+      "createIfNotExists": false,
+      "connectionStringSetting": "oyvindcloud2_DOCUMENTDB2"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputDocument",
+      "databaseName": "visitordb",
+      "collectionName": "visit",
+      "connectionStringSetting": "oyvindcloud2_DOCUMENTDB2",
+      "partitionKey": "testpartitionkey"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+
+  ]
+}
