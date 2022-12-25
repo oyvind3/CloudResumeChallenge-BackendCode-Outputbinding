@@ -8,7 +8,6 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList,  outputDocumen
     name = req.route_params.get('name')
     for name in inputDocument:
         logging.info(name.to_json())
-
     if name:
         newdocs = func.DocumentList()
         logging.info('things are getting there, right about func.documentlist is processed')
@@ -21,5 +20,5 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList,  outputDocumen
         newdocs_load_json= json.dumps(visitor)
         newdocs.append(func.Document.from_json(newdocs_load_json))
         outputDocument.set(newdocs)
-        
-        return func.HttpResponse(f"Hello, new value is: {newdocs_load_json} . ....")
+        return func.HttpResponse(f"Hello, new value: {newdocs_load_json} .....")
+      
