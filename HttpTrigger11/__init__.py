@@ -10,7 +10,7 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList,  outputDocumen
         logging.info(name.to_json())
     if name:
         newdocs = func.DocumentList()
-        logging.info('things are getting there, right about func.documentlist is processed')
+        logging.info('things are getting there, right about func.documentlist 2 is processed')
         visitorname = name.to_json()
         visitor = json.loads(visitorname)
         logging.info('json is loaded as an dict,')
