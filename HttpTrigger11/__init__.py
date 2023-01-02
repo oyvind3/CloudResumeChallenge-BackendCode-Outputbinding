@@ -13,12 +13,12 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList,  outputDocumen
         logging.info('things are getting there, right about func.documentlist is processed')
         visitorname = name.to_json()
         visitor = json.loads(visitorname)
-        logging.info('json is loaded')
+        logging.info('json is loaded as an dict,')
         key = "visitor"
         if key in visitor:
             visitor[key] +=1
         newdocs_load_json= json.dumps(visitor)
         newdocs.append(func.Document.from_json(newdocs_load_json))
         outputDocument.set(newdocs)
-        return func.HttpResponse(f"Hello, new value: {newdocs_load_json} .....")
+        return func.HttpResponse(f"{newdocs_load_json}")
       
