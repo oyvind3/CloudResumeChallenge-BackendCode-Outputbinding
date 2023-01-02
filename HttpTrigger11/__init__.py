@@ -13,7 +13,7 @@ def main(req: func.HttpRequest, inputDocument: func.DocumentList,  outputDocumen
         logging.info('things are getting there, trying to make adjustments clear')
         visitorname = name.to_json()
         visitor = json.loads(visitorname)
-        logging.info('json is loaded as an dict to make adjustments to the dict')
+        logging.info('readjusting somethings')
         key = "visitor"
         if key in visitor:
             visitor[key] +=1
